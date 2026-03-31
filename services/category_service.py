@@ -1,17 +1,27 @@
 from models.category_model import Category
 from fastapi import HTTPException
+from utils.logger import get_logger
+logger = get_logger(__name__)
+
 
 def create_category(data, db):
+    logger.info(f"Create category attempt | name={data.name}")
 
-    check_existing = db.query(Category).filter(Category.name == data.name).first()
+    existing = db.query(Category).filter(Category.name == data.name).first()
 
-    if check_existing:
+    if existing:
+        logger.warning(f"Category already exists | name={data.name}")
         raise HTTPException(status_code=400, detail="Category already exists")
+    try:
+        new_category = Category(name=data.name)
 
-    new_category = Category(name=data.name)
+        db.add(new_category)
+        db.commit()
+        db.refresh(new_category)
+        logger.info(f"Category created | id={new_category.id} | name={data.name}")
 
-    db.add(new_category)
-    db.commit()
-    db.refresh(new_category)
+        return new_category
 
-    return new_category
+    except Exception:
+        logger.exception(f"Error creating category | name={data.name}")
+        raise
