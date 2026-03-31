@@ -1,0 +1,6 @@
+2026-04-01 01:45:09,118 - WARNING - services.auth_service - Blocked user tried login: gaudam.s.jith@gmail.com
+2026-04-01 01:45:09,119 - WARNING - global - HTTPException | POST http://127.0.0.1:8000/auth/login | Status: 403 | Detail: User is blocked
+2026-04-01 01:46:28,343 - WARNING - services.auth_service - Blocked user tried login: gaudam.s.jith@gmail.com
+2026-04-01 01:46:28,345 - WARNING - global - HTTPException | POST http://127.0.0.1:8000/auth/login | Status: 403 | Detail: User is blocked
+2026-04-01 01:48:08,576 - WARNING - services.auth_service - Blocked user tried login: gaudam.s.jith@gmail.com
+2026-04-01 01:48:08,578 - WARNING - global - HTTPException | POST http://127.0.0.1:8000/auth/login | Status: 403 | Detail: User is blocked
