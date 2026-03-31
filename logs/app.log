@@ -1,0 +1,156 @@
+2026-03-31 22:55:27,971 - INFO - sqlalchemy.engine.Engine - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2026-03-31 22:55:27,971 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-03-31 22:55:27,974 - INFO - sqlalchemy.engine.Engine - SELECT schema_name()
+2026-03-31 22:55:27,974 - INFO - sqlalchemy.engine.Engine - [generated in 0.00056s] ()
+2026-03-31 22:55:28,003 - INFO - sqlalchemy.engine.Engine - SELECT CAST('test max support' AS NVARCHAR(max))
+2026-03-31 22:55:28,003 - INFO - sqlalchemy.engine.Engine - [generated in 0.00056s] ()
+2026-03-31 22:55:28,004 - INFO - sqlalchemy.engine.Engine - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2026-03-31 22:55:28,005 - INFO - sqlalchemy.engine.Engine - [generated in 0.00047s] ()
+2026-03-31 22:55:28,098 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-03-31 22:55:28,102 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 22:55:28,102 - INFO - sqlalchemy.engine.Engine - [generated in 0.00066s] ('BASE TABLE', 'VIEW', 'users', 'dbo')
+2026-03-31 22:55:28,122 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 22:55:28,122 - INFO - sqlalchemy.engine.Engine - [cached since 0.02046s ago] ('BASE TABLE', 'VIEW', 'images', 'dbo')
+2026-03-31 22:55:28,123 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 22:55:28,124 - INFO - sqlalchemy.engine.Engine - [cached since 0.02197s ago] ('BASE TABLE', 'VIEW', 'image_tags', 'dbo')
+2026-03-31 22:55:28,125 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 22:55:28,125 - INFO - sqlalchemy.engine.Engine - [cached since 0.02382s ago] ('BASE TABLE', 'VIEW', 'categories', 'dbo')
+2026-03-31 22:55:28,126 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-03-31 22:55:37,852 - INFO - sqlalchemy.engine.Engine - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2026-03-31 22:55:37,852 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-03-31 22:55:37,854 - INFO - sqlalchemy.engine.Engine - SELECT schema_name()
+2026-03-31 22:55:37,854 - INFO - sqlalchemy.engine.Engine - [generated in 0.00037s] ()
+2026-03-31 22:55:37,857 - INFO - sqlalchemy.engine.Engine - SELECT CAST('test max support' AS NVARCHAR(max))
+2026-03-31 22:55:37,857 - INFO - sqlalchemy.engine.Engine - [generated in 0.00034s] ()
+2026-03-31 22:55:37,858 - INFO - sqlalchemy.engine.Engine - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2026-03-31 22:55:37,858 - INFO - sqlalchemy.engine.Engine - [generated in 0.00036s] ()
+2026-03-31 22:55:37,860 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-03-31 22:55:37,864 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 22:55:37,865 - INFO - sqlalchemy.engine.Engine - [generated in 0.00074s] ('BASE TABLE', 'VIEW', 'users', 'dbo')
+2026-03-31 22:55:37,866 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 22:55:37,867 - INFO - sqlalchemy.engine.Engine - [cached since 0.002675s ago] ('BASE TABLE', 'VIEW', 'images', 'dbo')
+2026-03-31 22:55:37,868 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 22:55:37,868 - INFO - sqlalchemy.engine.Engine - [cached since 0.004424s ago] ('BASE TABLE', 'VIEW', 'image_tags', 'dbo')
+2026-03-31 22:55:37,869 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 22:55:37,870 - INFO - sqlalchemy.engine.Engine - [cached since 0.005966s ago] ('BASE TABLE', 'VIEW', 'categories', 'dbo')
+2026-03-31 22:55:37,871 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-03-31 22:55:39,436 - INFO - sqlalchemy.engine.Engine - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2026-03-31 22:55:39,436 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-03-31 22:55:39,438 - INFO - sqlalchemy.engine.Engine - SELECT schema_name()
+2026-03-31 22:55:39,438 - INFO - sqlalchemy.engine.Engine - [generated in 0.00038s] ()
+2026-03-31 22:55:39,440 - INFO - sqlalchemy.engine.Engine - SELECT CAST('test max support' AS NVARCHAR(max))
+2026-03-31 22:55:39,440 - INFO - sqlalchemy.engine.Engine - [generated in 0.00032s] ()
+2026-03-31 22:55:39,441 - INFO - sqlalchemy.engine.Engine - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2026-03-31 22:55:39,442 - INFO - sqlalchemy.engine.Engine - [generated in 0.00039s] ()
+2026-03-31 22:55:39,443 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-03-31 22:55:39,446 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 22:55:39,446 - INFO - sqlalchemy.engine.Engine - [generated in 0.00055s] ('BASE TABLE', 'VIEW', 'users', 'dbo')
+2026-03-31 22:55:39,448 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 22:55:39,448 - INFO - sqlalchemy.engine.Engine - [cached since 0.002327s ago] ('BASE TABLE', 'VIEW', 'images', 'dbo')
+2026-03-31 22:55:39,449 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 22:55:39,450 - INFO - sqlalchemy.engine.Engine - [cached since 0.003736s ago] ('BASE TABLE', 'VIEW', 'image_tags', 'dbo')
+2026-03-31 22:55:39,451 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 22:55:39,451 - INFO - sqlalchemy.engine.Engine - [cached since 0.005057s ago] ('BASE TABLE', 'VIEW', 'categories', 'dbo')
+2026-03-31 22:55:39,452 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-03-31 23:03:53,162 - INFO - sqlalchemy.engine.Engine - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2026-03-31 23:03:53,163 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-03-31 23:03:53,166 - INFO - sqlalchemy.engine.Engine - SELECT schema_name()
+2026-03-31 23:03:53,166 - INFO - sqlalchemy.engine.Engine - [generated in 0.00036s] ()
+2026-03-31 23:03:53,257 - INFO - sqlalchemy.engine.Engine - SELECT CAST('test max support' AS NVARCHAR(max))
+2026-03-31 23:03:53,258 - INFO - sqlalchemy.engine.Engine - [generated in 0.00049s] ()
+2026-03-31 23:03:53,263 - INFO - sqlalchemy.engine.Engine - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2026-03-31 23:03:53,263 - INFO - sqlalchemy.engine.Engine - [generated in 0.00032s] ()
+2026-03-31 23:03:53,405 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-03-31 23:03:53,408 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 23:03:53,408 - INFO - sqlalchemy.engine.Engine - [generated in 0.00057s] ('BASE TABLE', 'VIEW', 'users', 'dbo')
+2026-03-31 23:03:53,458 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 23:03:53,458 - INFO - sqlalchemy.engine.Engine - [cached since 0.05027s ago] ('BASE TABLE', 'VIEW', 'images', 'dbo')
+2026-03-31 23:03:53,460 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 23:03:53,460 - INFO - sqlalchemy.engine.Engine - [cached since 0.05244s ago] ('BASE TABLE', 'VIEW', 'image_tags', 'dbo')
+2026-03-31 23:03:53,462 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 23:03:53,462 - INFO - sqlalchemy.engine.Engine - [cached since 0.05462s ago] ('BASE TABLE', 'VIEW', 'categories', 'dbo')
+2026-03-31 23:03:53,463 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-03-31 23:03:54,927 - INFO - sqlalchemy.engine.Engine - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2026-03-31 23:03:54,928 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-03-31 23:03:54,929 - INFO - sqlalchemy.engine.Engine - SELECT schema_name()
+2026-03-31 23:03:54,930 - INFO - sqlalchemy.engine.Engine - [generated in 0.00037s] ()
+2026-03-31 23:03:54,955 - INFO - sqlalchemy.engine.Engine - SELECT CAST('test max support' AS NVARCHAR(max))
+2026-03-31 23:03:54,955 - INFO - sqlalchemy.engine.Engine - [generated in 0.00042s] ()
+2026-03-31 23:03:54,956 - INFO - sqlalchemy.engine.Engine - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2026-03-31 23:03:54,957 - INFO - sqlalchemy.engine.Engine - [generated in 0.00028s] ()
+2026-03-31 23:03:55,026 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-03-31 23:03:55,029 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 23:03:55,029 - INFO - sqlalchemy.engine.Engine - [generated in 0.00059s] ('BASE TABLE', 'VIEW', 'users', 'dbo')
+2026-03-31 23:03:55,045 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 23:03:55,045 - INFO - sqlalchemy.engine.Engine - [cached since 0.01618s ago] ('BASE TABLE', 'VIEW', 'images', 'dbo')
+2026-03-31 23:03:55,046 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 23:03:55,046 - INFO - sqlalchemy.engine.Engine - [cached since 0.01754s ago] ('BASE TABLE', 'VIEW', 'image_tags', 'dbo')
+2026-03-31 23:03:55,047 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 23:03:55,047 - INFO - sqlalchemy.engine.Engine - [cached since 0.01861s ago] ('BASE TABLE', 'VIEW', 'categories', 'dbo')
+2026-03-31 23:03:55,048 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-03-31 23:04:34,991 - INFO - sqlalchemy.engine.Engine - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2026-03-31 23:04:34,991 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-03-31 23:04:34,993 - INFO - sqlalchemy.engine.Engine - SELECT schema_name()
+2026-03-31 23:04:34,993 - INFO - sqlalchemy.engine.Engine - [generated in 0.00035s] ()
+2026-03-31 23:04:35,029 - INFO - sqlalchemy.engine.Engine - SELECT CAST('test max support' AS NVARCHAR(max))
+2026-03-31 23:04:35,029 - INFO - sqlalchemy.engine.Engine - [generated in 0.00049s] ()
+2026-03-31 23:04:35,030 - INFO - sqlalchemy.engine.Engine - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2026-03-31 23:04:35,031 - INFO - sqlalchemy.engine.Engine - [generated in 0.00033s] ()
+2026-03-31 23:04:35,116 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-03-31 23:04:35,120 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 23:04:35,120 - INFO - sqlalchemy.engine.Engine - [generated in 0.00058s] ('BASE TABLE', 'VIEW', 'users', 'dbo')
+2026-03-31 23:04:35,137 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 23:04:35,137 - INFO - sqlalchemy.engine.Engine - [cached since 0.01741s ago] ('BASE TABLE', 'VIEW', 'images', 'dbo')
+2026-03-31 23:04:35,138 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 23:04:35,139 - INFO - sqlalchemy.engine.Engine - [cached since 0.01873s ago] ('BASE TABLE', 'VIEW', 'image_tags', 'dbo')
+2026-03-31 23:04:35,140 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-03-31 23:04:35,140 - INFO - sqlalchemy.engine.Engine - [cached since 0.02028s ago] ('BASE TABLE', 'VIEW', 'categories', 'dbo')
+2026-03-31 23:04:35,141 - INFO - sqlalchemy.engine.Engine - COMMIT

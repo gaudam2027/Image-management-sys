@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException
+from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException, Query
 from sqlalchemy.orm import Session
 
 from config.db import get_db
@@ -11,6 +11,7 @@ router = APIRouter(prefix="/img", tags=["Images"])
 
 @router.get("/images", response_model=List[ImageResponse])
 def get_images(
+    page: int = Query(1),
     category_id: Optional[int] = None,
     tags: Optional[str] = None,
     current_user = Depends(get_current_user),
@@ -36,7 +37,7 @@ def update_img(
     id: int,
     file: UploadFile = File(None),
     category_id: int = Form(None),
-    tags: str = Form(None),
+    tags: Optional[str] = Form(None),
     current_user = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):

@@ -3,13 +3,11 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from dotenv import load_dotenv
 import os
 
-# Load .env
 load_dotenv()
 
-# Get DB URL
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-print("DB URL:", DATABASE_URL)  # for debugging
+print("DB URL:", DATABASE_URL)
 
 
 engine = create_engine(

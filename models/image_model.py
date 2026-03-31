@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, JSON
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime
+from sqlalchemy.orm import relationship
 from config.db import Base
 from datetime import datetime
 
@@ -13,7 +14,7 @@ class Image(Base):
     file_path = Column(String(255))
     file_size = Column(Integer)
 
-    tags = Column(JSON)
+    tags = relationship("ImageTag", back_populates="image", cascade="all, delete")
     
     is_deleted = Column(Boolean, default=False)
 
