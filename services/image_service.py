@@ -16,9 +16,7 @@ UPLOAD_DIR = "uploads"
 
 def get_user_images(current_user, db, page=1, category_id=None, tags=None):
     PER_PAGE = 2
-
-    page = page or 1
-
+    
     logger.info(f"Fetch images | user_id={current_user.id} | page={page}")
 
     query = db.query(Image).filter(

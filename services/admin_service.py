@@ -1,12 +1,25 @@
 from models.user_model import User
 from utils.logger import get_logger
+from sqlalchemy import or_
+from sqlalchemy.orm import Session
+from fastapi import HTTPException
+
 
 logger = get_logger(__name__)
 
-def get_all_users(db):
-    logger.info("Fetch all users")
-    users = db.query(User).filter(User.is_admin == False).all()
-    logger.info(f"Users fetched | count={len(users)}")
+def get_all_users(db, search=None, page=1):
+    PER_PAGE = 2
+    query = db.query(User).filter(User.is_admin == False)
+    if search:
+        search_term = f"%{search}%"
+        query = query.filter(
+            or_(
+                User.name.ilike(search_term),
+                User.email.ilike(search_term)
+            )
+        )
+    offset = (page - 1) * PER_PAGE
+    users = query.order_by(User.id).offset(offset).limit(PER_PAGE).all()
     return users
 
 def block_user(db: Session, user_id: int):

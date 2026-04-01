@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
+from typing import Optional
 from sqlalchemy.orm import Session
 from dependencies.auth import get_current_user,get_admin_user
 from config.db import get_db
@@ -14,8 +15,12 @@ def get_admin_profile(
 
 @router.get("/users", response_model=list[UserResponse])
 def get_users(
-    admin = Depends(get_admin_user),db: Session = Depends(get_db)):
-    return get_all_users(db)
+    search: Optional[str] = Query(None),
+    page: int = Query(1, ge=1),
+    admin = Depends(get_admin_user),
+    db: Session = Depends(get_db)
+    ):
+    return get_all_users(db,search,page)
 
 @router.put("/block/{user_id}")
 def block_user_route(user_id: int,admin = Depends(get_admin_user),db: Session = Depends(get_db)):

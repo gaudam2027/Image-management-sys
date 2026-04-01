@@ -17,7 +17,7 @@ def get_images(
     current_user = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    images = get_user_images(current_user, db, category_id, tags)
+    images = get_user_images(current_user, db, page, category_id, tags)
     return images
 
 
@@ -44,7 +44,7 @@ def update_img(
     updated_image = update_image(id, file, current_user, db, category_id, tags)
     return updated_image
 
-@router.delete("/delete",response_model=ImageResponse)
+@router.delete("/delete/{id}",response_model=ImageResponse)
 def delete_img(id: int,current_user = Depends(get_current_user),db: Session = Depends(get_db)):
     image = delete_image(id, current_user, db)
     return image
