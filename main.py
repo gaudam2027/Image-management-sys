@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from seed import run_all_seeds
 from config.db import Base, engine
-from routes import auth_routes,user_routes,image_routes,admin_routes
+from routes import auth_routes,user_routes,image_routes,admin_routes,favorite_router
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import HTTPException
 from utils.logger import get_logger
@@ -16,6 +16,7 @@ app = FastAPI()
 app.include_router(auth_routes.router)
 app.include_router(user_routes.router)
 app.include_router(image_routes.router)
+app.include_router(favorite_router.router)
 app.include_router(admin_routes.router)
 
 
