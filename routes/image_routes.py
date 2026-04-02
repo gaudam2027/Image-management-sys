@@ -14,10 +14,12 @@ def get_images(
     page: int = Query(1),
     category_id: Optional[int] = None,
     tags: Optional[str] = None,
+    start_date: Optional[str] = Query(None, description="Start date in YYYY-MM-DD"),
+    end_date: Optional[str] = Query(None, description="End date in YYYY-MM-DD"),
     current_user = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    images = get_user_images(current_user, db, page, category_id, tags)
+    images = get_user_images(current_user, db, page, category_id, tags,start_date,end_date)
     return images
 
 

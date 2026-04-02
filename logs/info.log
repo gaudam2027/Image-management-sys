@@ -10333,3 +10333,529 @@ FROM images LEFT OUTER JOIN image_tags AS image_tags_1 ON images.id = image_tags
 WHERE images.user_id = ? AND images.is_favorite = 1 AND images.is_deleted = 0
 2026-04-02 22:12:37,569 - INFO - sqlalchemy.engine.Engine - [cached since 16.52s ago] (1,)
 2026-04-02 22:12:37,575 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:47:39,112 - INFO - sqlalchemy.engine.Engine - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2026-04-02 22:47:39,113 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-04-02 22:47:39,117 - INFO - sqlalchemy.engine.Engine - SELECT schema_name()
+2026-04-02 22:47:39,117 - INFO - sqlalchemy.engine.Engine - [generated in 0.00044s] ()
+2026-04-02 22:47:39,167 - INFO - sqlalchemy.engine.Engine - SELECT CAST('test max support' AS NVARCHAR(max))
+2026-04-02 22:47:39,167 - INFO - sqlalchemy.engine.Engine - [generated in 0.00047s] ()
+2026-04-02 22:47:39,169 - INFO - sqlalchemy.engine.Engine - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2026-04-02 22:47:39,169 - INFO - sqlalchemy.engine.Engine - [generated in 0.00028s] ()
+2026-04-02 22:47:39,298 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:47:39,301 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:47:39,302 - INFO - sqlalchemy.engine.Engine - [generated in 0.00060s] ('BASE TABLE', 'VIEW', 'users', 'dbo')
+2026-04-02 22:47:39,332 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:47:39,332 - INFO - sqlalchemy.engine.Engine - [cached since 0.03116s ago] ('BASE TABLE', 'VIEW', 'images', 'dbo')
+2026-04-02 22:47:39,333 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:47:39,334 - INFO - sqlalchemy.engine.Engine - [cached since 0.03244s ago] ('BASE TABLE', 'VIEW', 'image_tags', 'dbo')
+2026-04-02 22:47:39,335 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:47:39,335 - INFO - sqlalchemy.engine.Engine - [cached since 0.03396s ago] ('BASE TABLE', 'VIEW', 'categories', 'dbo')
+2026-04-02 22:47:39,336 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-04-02 22:47:39,341 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:47:39,343 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:47:39,344 - INFO - sqlalchemy.engine.Engine - [generated in 0.00055s] ('People',)
+2026-04-02 22:47:39,347 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:47:39,347 - INFO - sqlalchemy.engine.Engine - [cached since 0.004164s ago] ('Nature',)
+2026-04-02 22:47:39,348 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:47:39,349 - INFO - sqlalchemy.engine.Engine - [cached since 0.00577s ago] ('Things',)
+2026-04-02 22:47:39,349 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-04-02 22:47:50,721 - INFO - services.auth_service - Login attempt for email: gaudam.s.jith@gmail.com
+2026-04-02 22:47:50,722 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:47:50,724 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.email = ?
+2026-04-02 22:47:50,725 - INFO - sqlalchemy.engine.Engine - [generated in 0.00052s] ('gaudam.s.jith@gmail.com',)
+2026-04-02 22:47:51,008 - INFO - services.auth_service - User logged in successfully: 1
+2026-04-02 22:47:51,009 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:49:56,563 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:49:56,565 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:49:56,565 - INFO - sqlalchemy.engine.Engine - [generated in 0.00076s] (1,)
+2026-04-02 22:49:56,580 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:49:56,587 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:49:56,588 - INFO - sqlalchemy.engine.Engine - [generated in 0.00075s] (1, 0, 2)
+2026-04-02 22:49:56,599 - INFO - services.image_service - Images fetched | count=2
+2026-04-02 22:49:56,603 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:50:03,816 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:50:03,817 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:50:03,817 - INFO - sqlalchemy.engine.Engine - [cached since 7.253s ago] (1,)
+2026-04-02 22:50:03,827 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:50:03,829 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:50:03,829 - INFO - sqlalchemy.engine.Engine - [cached since 7.242s ago] (1, 0, 2)
+2026-04-02 22:50:03,837 - INFO - services.image_service - Images fetched | count=2
+2026-04-02 22:50:03,839 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:50:13,796 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:50:13,797 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:50:13,799 - INFO - sqlalchemy.engine.Engine - [cached since 17.23s ago] (1,)
+2026-04-02 22:50:13,801 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:50:13,803 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:50:13,804 - INFO - sqlalchemy.engine.Engine - [cached since 17.22s ago] (1, 0, 2)
+2026-04-02 22:50:13,806 - INFO - services.image_service - Images fetched | count=2
+2026-04-02 22:50:13,808 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:50:24,717 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:50:24,717 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:50:24,718 - INFO - sqlalchemy.engine.Engine - [cached since 28.15s ago] (1,)
+2026-04-02 22:50:24,720 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:50:24,721 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:50:24,721 - INFO - sqlalchemy.engine.Engine - [cached since 28.13s ago] (1, 0, 2)
+2026-04-02 22:50:24,723 - INFO - services.image_service - Images fetched | count=2
+2026-04-02 22:50:24,725 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:50:30,509 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:50:30,509 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:50:30,510 - INFO - sqlalchemy.engine.Engine - [cached since 33.94s ago] (1,)
+2026-04-02 22:50:30,511 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:50:30,512 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:50:30,512 - INFO - sqlalchemy.engine.Engine - [cached since 33.93s ago] (1, 0, 2)
+2026-04-02 22:50:30,514 - INFO - services.image_service - Images fetched | count=2
+2026-04-02 22:50:30,515 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:50:36,499 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:50:36,499 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:50:36,500 - INFO - sqlalchemy.engine.Engine - [cached since 39.94s ago] (1,)
+2026-04-02 22:50:36,502 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:50:36,503 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:50:36,503 - INFO - sqlalchemy.engine.Engine - [cached since 39.92s ago] (1, 0, 2)
+2026-04-02 22:50:36,505 - INFO - services.image_service - Images fetched | count=2
+2026-04-02 22:50:36,507 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:50:44,311 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:50:44,312 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:50:44,312 - INFO - sqlalchemy.engine.Engine - [cached since 47.75s ago] (1,)
+2026-04-02 22:50:44,314 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:50:44,315 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:50:44,315 - INFO - sqlalchemy.engine.Engine - [cached since 47.73s ago] (1, 0, 2)
+2026-04-02 22:50:44,316 - INFO - services.image_service - Images fetched | count=2
+2026-04-02 22:50:44,318 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:50:49,690 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:50:49,692 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:50:49,693 - INFO - sqlalchemy.engine.Engine - [cached since 53.13s ago] (1,)
+2026-04-02 22:50:49,698 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:50:49,700 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:50:49,700 - INFO - sqlalchemy.engine.Engine - [cached since 53.11s ago] (1, 0, 2)
+2026-04-02 22:50:49,702 - INFO - services.image_service - Images fetched | count=2
+2026-04-02 22:50:49,704 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:50:57,930 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:50:57,930 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:50:57,931 - INFO - sqlalchemy.engine.Engine - [cached since 61.37s ago] (1,)
+2026-04-02 22:50:57,933 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:50:57,935 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:50:57,935 - INFO - sqlalchemy.engine.Engine - [cached since 61.35s ago] (1, 0, 2)
+2026-04-02 22:50:57,937 - INFO - services.image_service - Images fetched | count=2
+2026-04-02 22:50:57,939 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:52:58,700 - INFO - sqlalchemy.engine.Engine - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2026-04-02 22:52:58,700 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-04-02 22:52:58,701 - INFO - sqlalchemy.engine.Engine - SELECT schema_name()
+2026-04-02 22:52:58,702 - INFO - sqlalchemy.engine.Engine - [generated in 0.00028s] ()
+2026-04-02 22:52:58,720 - INFO - sqlalchemy.engine.Engine - SELECT CAST('test max support' AS NVARCHAR(max))
+2026-04-02 22:52:58,720 - INFO - sqlalchemy.engine.Engine - [generated in 0.00031s] ()
+2026-04-02 22:52:58,721 - INFO - sqlalchemy.engine.Engine - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2026-04-02 22:52:58,721 - INFO - sqlalchemy.engine.Engine - [generated in 0.00027s] ()
+2026-04-02 22:52:58,783 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:52:58,787 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:52:58,787 - INFO - sqlalchemy.engine.Engine - [generated in 0.00077s] ('BASE TABLE', 'VIEW', 'users', 'dbo')
+2026-04-02 22:52:58,802 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:52:58,802 - INFO - sqlalchemy.engine.Engine - [cached since 0.01593s ago] ('BASE TABLE', 'VIEW', 'images', 'dbo')
+2026-04-02 22:52:58,803 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:52:58,804 - INFO - sqlalchemy.engine.Engine - [cached since 0.01718s ago] ('BASE TABLE', 'VIEW', 'image_tags', 'dbo')
+2026-04-02 22:52:58,805 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:52:58,805 - INFO - sqlalchemy.engine.Engine - [cached since 0.0184s ago] ('BASE TABLE', 'VIEW', 'categories', 'dbo')
+2026-04-02 22:52:58,805 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-04-02 22:52:58,810 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:52:58,812 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:52:58,812 - INFO - sqlalchemy.engine.Engine - [generated in 0.00044s] ('People',)
+2026-04-02 22:52:58,815 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:52:58,815 - INFO - sqlalchemy.engine.Engine - [cached since 0.003777s ago] ('Nature',)
+2026-04-02 22:52:58,816 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:52:58,817 - INFO - sqlalchemy.engine.Engine - [cached since 0.005249s ago] ('Things',)
+2026-04-02 22:52:58,817 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-04-02 22:53:00,169 - INFO - sqlalchemy.engine.Engine - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2026-04-02 22:53:00,170 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-04-02 22:53:00,171 - INFO - sqlalchemy.engine.Engine - SELECT schema_name()
+2026-04-02 22:53:00,172 - INFO - sqlalchemy.engine.Engine - [generated in 0.00039s] ()
+2026-04-02 22:53:00,174 - INFO - sqlalchemy.engine.Engine - SELECT CAST('test max support' AS NVARCHAR(max))
+2026-04-02 22:53:00,174 - INFO - sqlalchemy.engine.Engine - [generated in 0.00033s] ()
+2026-04-02 22:53:00,175 - INFO - sqlalchemy.engine.Engine - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2026-04-02 22:53:00,176 - INFO - sqlalchemy.engine.Engine - [generated in 0.00035s] ()
+2026-04-02 22:53:00,177 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:53:00,180 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:53:00,181 - INFO - sqlalchemy.engine.Engine - [generated in 0.00052s] ('BASE TABLE', 'VIEW', 'users', 'dbo')
+2026-04-02 22:53:00,182 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:53:00,183 - INFO - sqlalchemy.engine.Engine - [cached since 0.002525s ago] ('BASE TABLE', 'VIEW', 'images', 'dbo')
+2026-04-02 22:53:00,184 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:53:00,184 - INFO - sqlalchemy.engine.Engine - [cached since 0.004085s ago] ('BASE TABLE', 'VIEW', 'image_tags', 'dbo')
+2026-04-02 22:53:00,185 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:53:00,185 - INFO - sqlalchemy.engine.Engine - [cached since 0.005228s ago] ('BASE TABLE', 'VIEW', 'categories', 'dbo')
+2026-04-02 22:53:00,186 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-04-02 22:53:00,192 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:53:00,194 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:53:00,194 - INFO - sqlalchemy.engine.Engine - [generated in 0.00046s] ('People',)
+2026-04-02 22:53:00,196 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:53:00,197 - INFO - sqlalchemy.engine.Engine - [cached since 0.00286s ago] ('Nature',)
+2026-04-02 22:53:00,198 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:53:00,199 - INFO - sqlalchemy.engine.Engine - [cached since 0.005049s ago] ('Things',)
+2026-04-02 22:53:00,200 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-04-02 22:53:03,590 - INFO - sqlalchemy.engine.Engine - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2026-04-02 22:53:03,590 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-04-02 22:53:03,592 - INFO - sqlalchemy.engine.Engine - SELECT schema_name()
+2026-04-02 22:53:03,592 - INFO - sqlalchemy.engine.Engine - [generated in 0.00056s] ()
+2026-04-02 22:53:03,595 - INFO - sqlalchemy.engine.Engine - SELECT CAST('test max support' AS NVARCHAR(max))
+2026-04-02 22:53:03,595 - INFO - sqlalchemy.engine.Engine - [generated in 0.00039s] ()
+2026-04-02 22:53:03,596 - INFO - sqlalchemy.engine.Engine - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2026-04-02 22:53:03,596 - INFO - sqlalchemy.engine.Engine - [generated in 0.00034s] ()
+2026-04-02 22:53:03,597 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:53:03,602 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:53:03,602 - INFO - sqlalchemy.engine.Engine - [generated in 0.00062s] ('BASE TABLE', 'VIEW', 'users', 'dbo')
+2026-04-02 22:53:03,603 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:53:03,604 - INFO - sqlalchemy.engine.Engine - [cached since 0.002255s ago] ('BASE TABLE', 'VIEW', 'images', 'dbo')
+2026-04-02 22:53:03,605 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:53:03,605 - INFO - sqlalchemy.engine.Engine - [cached since 0.003516s ago] ('BASE TABLE', 'VIEW', 'image_tags', 'dbo')
+2026-04-02 22:53:03,606 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:53:03,606 - INFO - sqlalchemy.engine.Engine - [cached since 0.004985s ago] ('BASE TABLE', 'VIEW', 'categories', 'dbo')
+2026-04-02 22:53:03,607 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-04-02 22:53:03,612 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:53:03,614 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:53:03,615 - INFO - sqlalchemy.engine.Engine - [generated in 0.00060s] ('People',)
+2026-04-02 22:53:03,616 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:53:03,617 - INFO - sqlalchemy.engine.Engine - [cached since 0.002215s ago] ('Nature',)
+2026-04-02 22:53:03,617 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:53:03,618 - INFO - sqlalchemy.engine.Engine - [cached since 0.003364s ago] ('Things',)
+2026-04-02 22:53:03,618 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-04-02 22:53:22,889 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:53:22,891 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:53:22,892 - INFO - sqlalchemy.engine.Engine - [generated in 0.00079s] (1,)
+2026-04-02 22:53:22,900 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:53:22,951 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 AND images.created_at >= ? AND images.created_at <= ? ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:53:22,952 - INFO - sqlalchemy.engine.Engine - [generated in 0.00077s] (1, datetime.datetime(2026, 5, 1, 0, 0), datetime.datetime(2026, 4, 2, 23, 59, 59, 999999), 0, 2)
+2026-04-02 22:53:22,960 - INFO - services.image_service - Images fetched | count=0
+2026-04-02 22:53:22,962 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:53:28,907 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:53:28,907 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:53:28,908 - INFO - sqlalchemy.engine.Engine - [cached since 6.017s ago] (1,)
+2026-04-02 22:53:28,909 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:53:28,914 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 AND images.created_at <= ? ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:53:28,914 - INFO - sqlalchemy.engine.Engine - [generated in 0.00098s] (1, datetime.datetime(2026, 5, 1, 0, 0), 0, 2)
+2026-04-02 22:53:28,929 - INFO - services.image_service - Images fetched | count=2
+2026-04-02 22:53:28,930 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:53:36,149 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:53:36,150 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:53:36,150 - INFO - sqlalchemy.engine.Engine - [cached since 13.26s ago] (1,)
+2026-04-02 22:53:36,152 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:53:36,153 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 AND images.created_at <= ? ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:53:36,153 - INFO - sqlalchemy.engine.Engine - [cached since 7.24s ago] (1, datetime.datetime(2026, 4, 2, 0, 0), 0, 2)
+2026-04-02 22:53:36,155 - INFO - services.image_service - Images fetched | count=2
+2026-04-02 22:53:36,156 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:54:11,675 - INFO - sqlalchemy.engine.Engine - SELECT CAST(SERVERPROPERTY('ProductVersion') AS VARCHAR)
+2026-04-02 22:54:11,675 - INFO - sqlalchemy.engine.Engine - [raw sql] ()
+2026-04-02 22:54:11,677 - INFO - sqlalchemy.engine.Engine - SELECT schema_name()
+2026-04-02 22:54:11,677 - INFO - sqlalchemy.engine.Engine - [generated in 0.00035s] ()
+2026-04-02 22:54:11,701 - INFO - sqlalchemy.engine.Engine - SELECT CAST('test max support' AS NVARCHAR(max))
+2026-04-02 22:54:11,701 - INFO - sqlalchemy.engine.Engine - [generated in 0.00042s] ()
+2026-04-02 22:54:11,702 - INFO - sqlalchemy.engine.Engine - SELECT 1 FROM fn_listextendedproperty(default, default, default, default, default, default, default)
+2026-04-02 22:54:11,702 - INFO - sqlalchemy.engine.Engine - [generated in 0.00030s] ()
+2026-04-02 22:54:11,765 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:54:11,769 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:54:11,769 - INFO - sqlalchemy.engine.Engine - [generated in 0.00060s] ('BASE TABLE', 'VIEW', 'users', 'dbo')
+2026-04-02 22:54:11,786 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:54:11,786 - INFO - sqlalchemy.engine.Engine - [cached since 0.01781s ago] ('BASE TABLE', 'VIEW', 'images', 'dbo')
+2026-04-02 22:54:11,788 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:54:11,788 - INFO - sqlalchemy.engine.Engine - [cached since 0.01978s ago] ('BASE TABLE', 'VIEW', 'image_tags', 'dbo')
+2026-04-02 22:54:11,789 - INFO - sqlalchemy.engine.Engine - SELECT [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] 
+FROM [INFORMATION_SCHEMA].[TABLES] 
+WHERE ([INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max)) OR [INFORMATION_SCHEMA].[TABLES].[TABLE_TYPE] = CAST(? AS NVARCHAR(max))) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_NAME] = CAST(? AS NVARCHAR(max)) AND [INFORMATION_SCHEMA].[TABLES].[TABLE_SCHEMA] = CAST(? AS NVARCHAR(max))
+2026-04-02 22:54:11,790 - INFO - sqlalchemy.engine.Engine - [cached since 0.02119s ago] ('BASE TABLE', 'VIEW', 'categories', 'dbo')
+2026-04-02 22:54:11,790 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-04-02 22:54:11,795 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:54:11,797 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:54:11,797 - INFO - sqlalchemy.engine.Engine - [generated in 0.00044s] ('People',)
+2026-04-02 22:54:11,800 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:54:11,801 - INFO - sqlalchemy.engine.Engine - [cached since 0.003995s ago] ('Nature',)
+2026-04-02 22:54:11,803 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.name = ?
+2026-04-02 22:54:11,803 - INFO - sqlalchemy.engine.Engine - [cached since 0.006266s ago] ('Things',)
+2026-04-02 22:54:11,804 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-04-02 22:54:11,814 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:54:11,816 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:54:11,816 - INFO - sqlalchemy.engine.Engine - [generated in 0.00049s] (1,)
+2026-04-02 22:54:11,818 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:54:11,823 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:54:11,823 - INFO - sqlalchemy.engine.Engine - [generated in 0.00068s] (1, 0, 5)
+2026-04-02 22:54:11,828 - INFO - services.image_service - Images fetched | count=4
+2026-04-02 22:54:11,831 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:54:55,821 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:54:55,821 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:54:55,822 - INFO - sqlalchemy.engine.Engine - [cached since 44.01s ago] (1,)
+2026-04-02 22:54:55,829 - INFO - services.image_service - Upload image attempt | user_id=1
+2026-04-02 22:54:55,831 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 categories.id AS categories_id, categories.name AS categories_name 
+FROM categories 
+WHERE categories.id = ?
+2026-04-02 22:54:55,831 - INFO - sqlalchemy.engine.Engine - [generated in 0.00051s] (5,)
+2026-04-02 22:54:55,839 - INFO - sqlalchemy.engine.Engine - INSERT INTO images (user_id, category_id, file_path, file_size, is_favorite, is_deleted, created_at) OUTPUT inserted.id VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-04-02 22:54:55,839 - INFO - sqlalchemy.engine.Engine - [generated in 0.00063s] (1, 5, 'uploads\\f4614975-4d37-45cf-a7cf-1f7ccb62b181.jpeg', 0, 0, 0, datetime.datetime(2026, 4, 2, 17, 24, 55, 839090))
+2026-04-02 22:54:55,856 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-04-02 22:54:55,858 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:54:55,859 - INFO - sqlalchemy.engine.Engine - SELECT images.id, images.user_id, images.category_id, images.file_path, images.file_size, images.is_favorite, images.is_deleted, images.created_at 
+FROM images 
+WHERE images.id = ?
+2026-04-02 22:54:55,859 - INFO - sqlalchemy.engine.Engine - [generated in 0.00046s] (14,)
+2026-04-02 22:54:55,861 - INFO - services.image_service - Image saved | image_id=14
+2026-04-02 22:54:55,864 - INFO - sqlalchemy.engine.Engine - INSERT INTO image_tags (image_id, tag) OUTPUT inserted.id VALUES (?, ?)
+2026-04-02 22:54:55,864 - INFO - sqlalchemy.engine.Engine - [generated in 0.00064s] (14, 'new')
+2026-04-02 22:54:55,871 - INFO - sqlalchemy.engine.Engine - COMMIT
+2026-04-02 22:54:55,872 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:54:55,874 - INFO - sqlalchemy.engine.Engine - SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.id = ?
+2026-04-02 22:54:55,874 - INFO - sqlalchemy.engine.Engine - [generated in 0.00049s] (14,)
+2026-04-02 22:54:55,877 - INFO - services.image_service - Tags added | image_id=14 | tags=['new']
+2026-04-02 22:54:55,880 - INFO - sqlalchemy.engine.Engine - SELECT image_tags.id AS image_tags_id, image_tags.image_id AS image_tags_image_id, image_tags.tag AS image_tags_tag 
+FROM image_tags 
+WHERE image_tags.image_id = ?
+2026-04-02 22:54:55,880 - INFO - sqlalchemy.engine.Engine - [generated in 0.00054s] (14,)
+2026-04-02 22:54:55,885 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:55:25,064 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:55:25,065 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:55:25,065 - INFO - sqlalchemy.engine.Engine - [cached since 73.25s ago] (1,)
+2026-04-02 22:55:25,067 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:55:25,068 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:55:25,069 - INFO - sqlalchemy.engine.Engine - [cached since 73.25s ago] (1, 0, 5)
+2026-04-02 22:55:25,074 - INFO - services.image_service - Images fetched | count=5
+2026-04-02 22:55:25,076 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:55:57,760 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:55:57,761 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:55:57,761 - INFO - sqlalchemy.engine.Engine - [cached since 105.9s ago] (1,)
+2026-04-02 22:55:57,767 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:55:57,775 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 AND images.created_at >= ? AND images.created_at <= ? ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:55:57,776 - INFO - sqlalchemy.engine.Engine - [generated in 0.00078s] (1, datetime.datetime(2026, 4, 1, 0, 0), datetime.datetime(2026, 4, 2, 23, 59, 59, 999999), 0, 5)
+2026-04-02 22:55:57,782 - INFO - services.image_service - Images fetched | count=1
+2026-04-02 22:55:57,783 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:56:12,819 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:56:12,819 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:56:12,819 - INFO - sqlalchemy.engine.Engine - [cached since 121s ago] (1,)
+2026-04-02 22:56:12,821 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:56:12,822 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 AND images.created_at >= ? AND images.created_at <= ? ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:56:12,822 - INFO - sqlalchemy.engine.Engine - [cached since 15.05s ago] (1, datetime.datetime(2026, 3, 1, 0, 0), datetime.datetime(2026, 4, 1, 0, 0), 0, 5)
+2026-04-02 22:56:12,824 - INFO - services.image_service - Images fetched | count=4
+2026-04-02 22:56:12,826 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:56:41,366 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:56:41,366 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:56:41,367 - INFO - sqlalchemy.engine.Engine - [cached since 149.6s ago] (1,)
+2026-04-02 22:56:41,376 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:56:41,378 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 AND images.created_at >= ? AND images.created_at <= ? ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:56:41,378 - INFO - sqlalchemy.engine.Engine - [cached since 43.6s ago] (1, datetime.datetime(2026, 3, 1, 0, 0), datetime.datetime(2026, 4, 2, 0, 0), 0, 5)
+2026-04-02 22:56:41,386 - INFO - services.image_service - Images fetched | count=4
+2026-04-02 22:56:41,388 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:56:54,766 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:56:54,768 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:56:54,769 - INFO - sqlalchemy.engine.Engine - [cached since 163s ago] (1,)
+2026-04-02 22:56:54,772 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:56:54,774 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 AND images.created_at >= ? AND images.created_at <= ? ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:56:54,774 - INFO - sqlalchemy.engine.Engine - [cached since 57s ago] (1, datetime.datetime(2026, 3, 1, 0, 0), datetime.datetime(2026, 4, 3, 0, 0), 0, 5)
+2026-04-02 22:56:54,776 - INFO - services.image_service - Images fetched | count=5
+2026-04-02 22:56:54,778 - INFO - sqlalchemy.engine.Engine - ROLLBACK
+2026-04-02 22:57:06,273 - INFO - sqlalchemy.engine.Engine - BEGIN (implicit)
+2026-04-02 22:57:06,274 - INFO - sqlalchemy.engine.Engine - SELECT TOP 1 users.id AS users_id, users.name AS users_name, users.email AS users_email, users.password AS users_password, users.is_admin AS users_is_admin, users.is_blocked AS users_is_blocked, users.storage_limit AS users_storage_limit, users.created_at AS users_created_at 
+FROM users 
+WHERE users.id = ?
+2026-04-02 22:57:06,274 - INFO - sqlalchemy.engine.Engine - [cached since 174.5s ago] (1,)
+2026-04-02 22:57:06,277 - INFO - services.image_service - Fetch images | user_id=1 | page=1
+2026-04-02 22:57:06,278 - INFO - sqlalchemy.engine.Engine - SELECT anon_1.images_id AS anon_1_images_id, anon_1.images_user_id AS anon_1_images_user_id, anon_1.images_category_id AS anon_1_images_category_id, anon_1.images_file_path AS anon_1_images_file_path, anon_1.images_file_size AS anon_1_images_file_size, anon_1.images_is_favorite AS anon_1_images_is_favorite, anon_1.images_is_deleted AS anon_1_images_is_deleted, anon_1.images_created_at AS anon_1_images_created_at, image_tags_1.id AS image_tags_1_id, image_tags_1.image_id AS image_tags_1_image_id, image_tags_1.tag AS image_tags_1_tag 
+FROM (SELECT images.id AS images_id, images.user_id AS images_user_id, images.category_id AS images_category_id, images.file_path AS images_file_path, images.file_size AS images_file_size, images.is_favorite AS images_is_favorite, images.is_deleted AS images_is_deleted, images.created_at AS images_created_at 
+FROM images 
+WHERE images.user_id = ? AND images.is_deleted = 0 AND images.created_at >= ? AND images.created_at <= ? ORDER BY images.id DESC
+ OFFSET ? ROWS
+ FETCH FIRST ? ROWS ONLY) AS anon_1 LEFT OUTER JOIN image_tags AS image_tags_1 ON anon_1.images_id = image_tags_1.image_id ORDER BY anon_1.images_id DESC
+2026-04-02 22:57:06,279 - INFO - sqlalchemy.engine.Engine - [cached since 68.5s ago] (1, datetime.datetime(2026, 3, 1, 0, 0), datetime.datetime(2026, 4, 2, 23, 59, 59, 999999), 0, 5)
+2026-04-02 22:57:06,280 - INFO - services.image_service - Images fetched | count=5
+2026-04-02 22:57:06,282 - INFO - sqlalchemy.engine.Engine - ROLLBACK

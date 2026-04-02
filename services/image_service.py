@@ -2,6 +2,7 @@ import os
 import shutil
 import uuid
 from fastapi import HTTPException
+from datetime import datetime
 from models.image_model import Image
 from sqlalchemy import func
 from sqlalchemy.orm import joinedload
@@ -14,8 +15,8 @@ logger = get_logger(__name__)
 UPLOAD_DIR = "uploads"
 
 
-def get_user_images(current_user, db, page=1, category_id=None, tags=None):
-    PER_PAGE = 2
+def get_user_images(current_user, db, page=1, category_id=None, tags=None, start_date: str = None, end_date: str = None):
+    PER_PAGE = 5
     
     logger.info(f"Fetch images | user_id={current_user.id} | page={page}")
 
@@ -23,7 +24,26 @@ def get_user_images(current_user, db, page=1, category_id=None, tags=None):
         Image.user_id == current_user.id,
         Image.is_deleted == False
     )
-
+    
+    start_dt = None
+    end_dt = None
+    
+    if start_date:
+        start_dt = datetime.strptime(start_date, "%Y-%m-%d")
+        if end_date:
+            end_dt = datetime.strptime(end_date, "%Y-%m-%d")
+        else:
+            end_dt = datetime.combine(datetime.utcnow().date(), datetime.max.time())
+    elif end_date:
+            end_dt = datetime.strptime(end_date, "%Y-%m-%d")
+            
+    if start_dt and end_dt:
+        query = query.filter(Image.created_at >= start_dt, Image.created_at <= end_dt)
+    elif start_dt:
+        query = query.filter(Image.created_at >= start_dt)
+    elif end_dt:
+        query = query.filter(Image.created_at <= end_dt)
+        
     if category_id:
         logger.info(f"Filter by category | category_id={category_id}")
         query = query.filter(Image.category_id == category_id)
