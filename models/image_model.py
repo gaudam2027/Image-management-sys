@@ -16,6 +16,8 @@ class Image(Base):
 
     tags = relationship("ImageTag", back_populates="image", cascade="all, delete")
     
+    is_favorite = Column(Boolean, default=False)
+    
     is_deleted = Column(Boolean, default=False)
 
     created_at = Column(DateTime, default=datetime.utcnow)

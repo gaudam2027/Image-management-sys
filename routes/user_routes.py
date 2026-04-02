@@ -5,7 +5,7 @@ from config.db import get_db
 from services.user_service import get_user_profile
 from schemas.user_schema import UserResponse
 from schemas.category_schema import CategoryCreate,CategoryResponse
-from services.category_service import create_category
+from services.category_service import get_category,create_category
 
 
 router = APIRouter(prefix="/user", tags=["User"])
@@ -18,7 +18,15 @@ def home(
     user =get_user_profile(current_user, db)
     return user
 
-@router.post("/category",response_model=CategoryResponse)
+@router.get("/category",response_model=list[CategoryResponse])
+def get_cat(
+    current_user = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    cat = get_category(db)
+    return cat
+
+@router.post("/category",response_model=CategoryCreate)
 def add_cat(
     data: CategoryCreate,
     current_user = Depends(get_current_user),

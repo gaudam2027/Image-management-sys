@@ -4,6 +4,17 @@ from utils.logger import get_logger
 logger = get_logger(__name__)
 
 
+def get_category(db):
+    logger.info(f"Fetching all category")
+    try:
+        Categories = db.query(Category).all()
+        return Categories
+    except Exception:
+        logger.exception("Error fetching categories")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+        
+    
+
 def create_category(data, db):
     logger.info(f"Create category attempt | name={data.name}")
 

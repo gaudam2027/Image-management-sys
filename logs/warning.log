@@ -44,3 +44,9 @@
 2026-04-01 20:57:28,299 - WARNING - services.image_service - Category not found | category_id=999
 2026-04-01 22:44:58,515 - WARNING - services.auth_service - Login failed - Wrong password for: admin@gmail.com
 2026-04-01 22:44:58,525 - WARNING - global - HTTPException | POST http://127.0.0.1:8000/auth/login | Status: 401 | Detail: Invalid password
+2026-04-02 21:11:51,497 - WARNING - services.category_service - Category already exists | name=new
+2026-04-02 21:11:51,499 - WARNING - global - HTTPException | POST http://127.0.0.1:8000/user/category | Status: 400 | Detail: Category already exists
+2026-04-02 21:18:50,369 - WARNING - services.category_service - Category already exists | name=people
+2026-04-02 21:18:50,370 - WARNING - global - HTTPException | POST http://127.0.0.1:8000/user/category | Status: 400 | Detail: Category already exists
+2026-04-02 21:56:13,606 - WARNING - services.auth_service - Login failed - Invalid email: gaudam@gmail.com
+2026-04-02 21:56:13,608 - WARNING - global - HTTPException | POST http://127.0.0.1:8000/auth/login | Status: 404 | Detail: Invalid email

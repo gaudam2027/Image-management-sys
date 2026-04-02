@@ -5,7 +5,7 @@ from config.db import get_db
 from dependencies.auth import get_current_user
 from schemas.image_schema import ImageResponse
 from typing import List, Optional
-from services.image_service import get_user_images,save_image,update_image,delete_image
+from services.image_service import get_user_images,save_image,update_image,delete_image,get_favorite_images,add_to_fav,remove_from_fav
 
 router = APIRouter(prefix="/img", tags=["Images"])
 
@@ -48,3 +48,30 @@ def update_img(
 def delete_img(id: int,current_user = Depends(get_current_user),db: Session = Depends(get_db)):
     image = delete_image(id, current_user, db)
     return image
+
+# ----------------------------favorites--------------------------
+
+@router.get("/favorites",response_model=List[ImageResponse])
+def get_favorites(
+    current_user = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    favorites = get_favorite_images(current_user, db)
+    return favorites
+
+@router.post("/favorite/{id}", response_model=ImageResponse)
+def add_favorite(
+    id: int,
+    current_user = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    return add_to_fav(id, current_user, db)
+
+@router.delete("/favorite/{id}", response_model=ImageResponse)
+def add_favorite(
+    id: int,
+    current_user = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    return remove_from_fav(id, current_user, db)
+
