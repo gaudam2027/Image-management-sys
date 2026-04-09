@@ -1,9 +1,10 @@
 from fastapi import FastAPI, Request
 from seed import run_all_seeds
 from config.db import Base, engine
-from routes import auth_routes,user_routes,image_routes,admin_routes,favorite_router
+from routes import auth_routes,user_routes,image_routes,trash_router,admin_routes,favorite_router
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import HTTPException
+from worker.trash_scheduler import start_scheduler
 from utils.logger import get_logger
 
 from models.user_model import User
@@ -16,6 +17,7 @@ app = FastAPI()
 app.include_router(auth_routes.router)
 app.include_router(user_routes.router)
 app.include_router(image_routes.router)
+app.include_router(trash_router.router)
 app.include_router(favorite_router.router)
 app.include_router(admin_routes.router)
 
@@ -27,6 +29,7 @@ def init_db():
 def startup_event():
     init_db()
     run_all_seeds()
+    # start_scheduler()
 
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request: Request, exc: HTTPException):

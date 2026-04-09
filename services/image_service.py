@@ -3,11 +3,12 @@ import shutil
 import uuid
 from fastapi import HTTPException
 from datetime import datetime
-from models.image_model import Image
+from models.image_model import Image, VisibilityEnum
 from sqlalchemy import func
 from sqlalchemy.orm import joinedload
 from models.image_tags_model import ImageTag
 from models.category_model import Category
+from models import Trash,ImageLike
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -20,9 +21,12 @@ def get_user_images(current_user, db, page=1, category_id=None, tags=None, start
     
     logger.info(f"Fetch images | user_id={current_user.id} | page={page}")
 
+    trashed_image_ids = db.query(Trash.image_id).filter(Trash.user_id == current_user.id).subquery()
+    
     query = db.query(Image).filter(
         Image.user_id == current_user.id,
-        Image.is_deleted == False
+        Image.is_deleted == False,
+        ~Image.id.in_(trashed_image_ids)
     )
     
     start_dt = None
@@ -128,8 +132,12 @@ def save_image(file, current_user, category_id, tags, db):
 
 def update_image(image_id, file, current_user, db, category_id=None, tags=None):
     logger.info(f"Update image attempt | image_id={image_id} | user_id={current_user.id}")
-
-    image = db.query(Image).filter(Image.id == image_id).first()
+    trashed_image_ids = db.query(Trash.image_id).filter(Trash.user_id == current_user.id).subquery()
+    image = db.query(Image).filter(
+        Image.id == image_id,
+        Image.is_deleted == False,
+        ~Image.id.in_(trashed_image_ids)
+        ).first()
 
     if not image:
         logger.warning(f"Image not found | image_id={image_id}")
@@ -184,30 +192,100 @@ def update_image(image_id, file, current_user, db, category_id=None, tags=None):
         logger.exception(f"Error updating image | image_id={image_id}")
         raise
 
-
-def delete_image(image_id, current_user, db):
-    logger.info(f"Delete image attempt | image_id={image_id} | user_id={current_user.id}")
-
-    image = db.query(Image).filter(Image.id == image_id).first()
-
+    
+def toggle_image_visibility(current_user,db, image_id: int):
+    logger.info(f"Toggle visibility | image_id={image_id} | user_id={current_user.id}")
+    
+    trashed_image_ids = db.query(Trash.image_id).filter(Trash.user_id == current_user.id).subquery()
+    image = db.query(Image).filter(
+        Image.id == image_id,
+        Image.user_id == current_user.id,
+        Image.is_deleted == False,
+        ~Image.id.in_(trashed_image_ids)
+    ).first()
+    
     if not image:
         logger.warning(f"Image not found | image_id={image_id}")
         raise HTTPException(status_code=404, detail="Image not found")
-
-    if image.user_id != current_user.id:
-        logger.warning(f"Unauthorized delete attempt | image_id={image_id}")
-        raise HTTPException(status_code=403, detail="Not authorized")
-
+    
     try:
-        image.is_deleted = True
+        if image.visibility == VisibilityEnum.PRIVATE:
+            image.visibility = VisibilityEnum.PUBLIC
+        else:
+            image.visibility = VisibilityEnum.PRIVATE
 
         db.commit()
         db.refresh(image)
-        logger.info(f"Image soft deleted | image_id={image.id}")
+
+        logger.info(f"Visibility toggled | image_id={image.id} | new_visibility={image.visibility}")
 
         return image
-
+    
     except Exception:
-        logger.exception(f"Error deleting image | image_id={image_id}")
+        logger.exception(f"Error toggling visibility | image_id={image_id}")
         raise
+    
+def get_public_images(current_user,db, page=1, category_id=None, tags=None):
+    PER_PAGE = 5
+    logger.info(f"Fetch public images | page={page}")
+
+    trashed_image_ids = db.query(Trash.image_id).subquery()
+    query = db.query(Image).filter(
+        Image.visibility == VisibilityEnum.PUBLIC,
+        Image.is_deleted == False,
+        ~Image.id.in_(trashed_image_ids)
+    )
+    
+    if category_id:
+        query = query.filter(Image.category_id == category_id)
+        
+    if tags:
+        tags_list = [tag.strip().lower() for tag in tags.split(",")]
+        logger.info(f"Filter by tags | tags={tags_list}")
+
+        query = query.join(ImageTag).filter(ImageTag.tag.in_(tags_list))
+        query = query.group_by(Image.id).having(
+            func.count(ImageTag.tag) == len(tags_list)
+        )
+        
+    offset = (page - 1) * PER_PAGE
+        
+    images = (
+        query.options(joinedload(Image.tags))
+        .order_by(Image.id.desc())
+        .offset(offset)
+        .limit(PER_PAGE)
+        .all()
+    )
+
+    logger.info(f"Public images fetched | count={len(images)}")
+
+    return images
+        
+    
+def toggle_like_image(current_user, db, image_id: int):
+    image = db.query(Image).filter(
+        Image.id == image_id,
+        Image.is_deleted == False,
+        Image.visibility == VisibilityEnum.PUBLIC
+    ).first()
+    
+    if not image:
+        raise HTTPException(status_code=404, detail="Public image not found")
+    
+    existing_like = db.query(ImageLike).filter(
+        ImageLike.image_id == image.id,
+        ImageLike.user_id == current_user.id
+    ).first()
+        
+    if existing_like:
+        db.delete(existing_like)
+        db.commit()
+        return {"liked": False, "image_id": image.id}
+    else:
+        new_like = ImageLike(image_id=image.id, user_id=current_user.id)
+        db.add(new_like)
+        db.commit()
+        return {"liked": True, "image_id": image.id}
+    
     

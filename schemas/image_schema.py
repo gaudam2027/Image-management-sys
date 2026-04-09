@@ -1,6 +1,11 @@
 from pydantic import BaseModel, field_validator
 from typing import Optional,List
 from datetime import datetime
+from enum import Enum
+
+class VisibilityEnum(str, Enum):
+    PRIVATE = "private"
+    PUBLIC = "public"
 
 class ImageResponse(BaseModel):
     id: int
@@ -9,6 +14,8 @@ class ImageResponse(BaseModel):
     file_path: str
     file_size: int
     tags: List[str]
+    visibility: VisibilityEnum
+    like_count: int
     created_at: datetime
 
     class Config:

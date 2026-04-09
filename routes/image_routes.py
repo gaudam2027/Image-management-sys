@@ -1,15 +1,15 @@
-from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException, Query
+from fastapi import APIRouter, Depends, UploadFile, File, Form, Query
 from sqlalchemy.orm import Session
 
 from config.db import get_db
 from dependencies.auth import get_current_user
 from schemas.image_schema import ImageResponse
 from typing import List, Optional
-from services.image_service import get_user_images,save_image,update_image,delete_image
+from services.image_service import get_user_images,save_image,update_image,toggle_image_visibility,get_public_images,toggle_like_image
 
 router = APIRouter(prefix="/img", tags=["Images"])
 
-@router.get("/images", response_model=List[ImageResponse])
+@router.get("/", response_model=List[ImageResponse])
 def get_images(
     page: int = Query(1),
     category_id: Optional[int] = None,
@@ -46,8 +46,33 @@ def update_img(
     updated_image = update_image(id, file, current_user, db, category_id, tags)
     return updated_image
 
-@router.delete("/delete/{id}",response_model=ImageResponse)
-def delete_img(id: int,current_user = Depends(get_current_user),db: Session = Depends(get_db)):
-    image = delete_image(id, current_user, db)
+
+@router.patch("/visibility/{image_id}", response_model=ImageResponse)
+def toggle_visibility(
+    image_id: int,
+    current_user = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    image = toggle_image_visibility(current_user, db, image_id)
     return image
 
+
+@router.get("/public", response_model=List[ImageResponse])
+def public_feed(
+    page: int = Query(1),
+    category_id: Optional[int] = None,
+    current_user = Depends(get_current_user),
+    tags: Optional[str] = None,
+    db: Session = Depends(get_db)
+):
+    images = get_public_images(current_user, db, page, category_id, tags)
+    return images
+
+
+@router.post("/like/{image_id}")
+def like_image(
+    image_id: int,
+    current_user = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    return toggle_like_image(current_user, db, image_id)
