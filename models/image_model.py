@@ -14,6 +14,7 @@ class Image(Base):
 
     id = Column(Integer, primary_key=True, index=True)
 
+    title = Column(String(255), nullable=False)
     user_id = Column(Integer, ForeignKey("users.id"))
     category_id = Column(Integer, ForeignKey("categories.id"))
 

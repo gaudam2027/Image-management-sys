@@ -4,3 +4,4 @@ from .image_tags_model import ImageTag
 from .category_model import Category
 from .trash_model import Trash
 from .image_likes_model import ImageLike
+from .image_history_model import ImageHistory

@@ -8,8 +8,8 @@ from sqlalchemy import func
 from sqlalchemy.orm import joinedload
 from models.image_tags_model import ImageTag
 from models.category_model import Category
-from models import Trash,ImageLike
-from utils.logger import get_logger
+from models import Trash,ImageLike, ImageHistory
+from utils import get_logger, check_daily_limit
 
 logger = get_logger(__name__)
 
@@ -75,7 +75,28 @@ def get_user_images(current_user, db, page=1, category_id=None, tags=None, start
 
     return images
 
-def save_image(file, current_user, category_id, tags, db):
+
+# ------------------------fetching history of an image------------
+def get_image_history(image_id: int, current_user, db):
+    image = db.query(Image).filter(Image.id == image_id).first()
+
+    if not image:
+        raise HTTPException(status_code=404, detail="Image not found")
+
+    if image.user_id != current_user.id:
+        raise HTTPException(status_code=403, detail="Not authorized")
+
+    history = (
+        db.query(ImageHistory)
+        .filter(ImageHistory.image_id == image_id)
+        .order_by(ImageHistory.updated_at.desc())
+        .all()
+    )
+
+    return history
+
+
+def save_image(file, current_user, category_id, tags, title, db):
     logger.info(f"Upload image attempt | user_id={current_user.id}")
 
     if file.content_type not in ["image/jpeg", "image/png"]:
@@ -86,6 +107,12 @@ def save_image(file, current_user, category_id, tags, db):
     if not category:
         logger.warning(f"Category not found | category_id={category_id}")
         raise HTTPException(status_code=404, detail="Category not found")
+    
+    if check_daily_limit(db, current_user.id):
+        raise HTTPException(status_code=400,detail="Daily upload limit reached (10 images per day)")
+    
+    if not title or not title.strip():
+        raise HTTPException(status_code=400, detail="Title field is required")
 
     try:
         if not os.path.exists(UPLOAD_DIR):
@@ -101,6 +128,7 @@ def save_image(file, current_user, category_id, tags, db):
         new_image = Image(
             user_id=current_user.id,
             category_id=category_id,
+            title=title.strip(),
             file_path=file_path,
             file_size=0,
         )
@@ -126,11 +154,12 @@ def save_image(file, current_user, category_id, tags, db):
         return new_image
 
     except Exception:
+        db.rollback()
         logger.exception(f"Error saving image | user_id={current_user.id}")
         raise
 
 
-def update_image(image_id, file, current_user, db, category_id=None, tags=None):
+def update_image(image_id, file, current_user, db, category_id=None, tags=None, title=None):
     logger.info(f"Update image attempt | image_id={image_id} | user_id={current_user.id}")
     trashed_image_ids = db.query(Trash.image_id).filter(Trash.user_id == current_user.id).subquery()
     image = db.query(Image).filter(
@@ -146,8 +175,27 @@ def update_image(image_id, file, current_user, db, category_id=None, tags=None):
     if image.user_id != current_user.id:
         logger.warning(f"Unauthorized update attempt | image_id={image_id}")
         raise HTTPException(status_code=403, detail="Not authorized")
+    
 
     try:
+        if title is not None:
+            title = title.strip()
+
+            if not title:
+                raise HTTPException(status_code=400, detail="Title cannot be empty")
+
+            old_title = image.title
+            
+            if title != old_title:
+                image.title = title
+
+                history = ImageHistory(
+                    image_id=image.id,
+                    old_title=old_title,
+                    new_title=title
+                )
+                db.add(history)
+            
         if category_id is not None:
             image.category_id = category_id
 

@@ -3,9 +3,9 @@ from sqlalchemy.orm import Session
 
 from config.db import get_db
 from dependencies.auth import get_current_user
-from schemas.image_schema import ImageResponse
+from schemas.image_schema import ImageResponse,ImageHistoryResponse
 from typing import List, Optional
-from services.image_service import get_user_images,save_image,update_image,toggle_image_visibility,get_public_images,toggle_like_image
+from services.image_service import get_user_images,save_image,update_image,toggle_image_visibility,get_public_images,toggle_like_image,get_image_history
 
 router = APIRouter(prefix="/img", tags=["Images"])
 
@@ -27,11 +27,12 @@ def get_images(
 def upload_image(
     file: UploadFile = File(...),
     category_id: int = Form(...),
+    title: str = Form(...),
     tags: str = Form(None),
     current_user = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    new_image = save_image(file, current_user, category_id, tags, db)
+    new_image = save_image(file, current_user, category_id, title, tags, db)
     return new_image
 
 @router.put("/update/{id}",response_model=ImageResponse)
@@ -40,10 +41,11 @@ def update_img(
     file: UploadFile = File(None),
     category_id: int = Form(None),
     tags: Optional[str] = Form(None),
+    title: Optional[str] = Form(None),
     current_user = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    updated_image = update_image(id, file, current_user, db, category_id, tags)
+    updated_image = update_image(id, file, current_user, db, category_id, tags, title)
     return updated_image
 
 
@@ -76,3 +78,11 @@ def like_image(
     db: Session = Depends(get_db)
 ):
     return toggle_like_image(current_user, db, image_id)
+
+@router.get("/{image_id}/history", response_model=List[ImageHistoryResponse])
+def image_history(
+    image_id: int,
+    current_user = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    return get_image_history(image_id, current_user, db)

@@ -72,3 +72,4 @@
 2026-04-09 19:47:05,446 - WARNING - global - HTTPException | POST http://127.0.0.1:8000/img/like/11 | Status: 401 | Detail: Not authenticated
 2026-04-09 19:47:10,532 - WARNING - global - HTTPException | POST http://127.0.0.1:8000/img/like/11 | Status: 401 | Detail: Not authenticated
 2026-04-09 19:48:10,827 - WARNING - global - HTTPException | POST http://127.0.0.1:8000/img/like/12 | Status: 404 | Detail: Public image not found
+2026-04-10 19:53:59,271 - WARNING - global - HTTPException | POST http://127.0.0.1:8000/img/upload | Status: 400 | Detail: Daily upload limit reached (10 images per day)

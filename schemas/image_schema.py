@@ -11,6 +11,8 @@ class ImageResponse(BaseModel):
     id: int
     user_id: int
     category_id: Optional[int]
+    tags: Optional[str]
+    title: str
     file_path: str
     file_size: int
     tags: List[str]
@@ -28,3 +30,12 @@ class ImageResponse(BaseModel):
             return [t.tag if hasattr(t, "tag") else t for t in value]
         return value
         
+class ImageHistoryResponse(BaseModel):
+    id: int
+    image_id: int
+    old_title: str | None
+    new_title: str | None
+    updated_at: datetime
+
+    class Config:
+        from_attributes = True
